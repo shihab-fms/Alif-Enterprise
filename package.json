@@ -1,4 +1,5 @@
 {
+  "homepage": "https://shihab-fms.github.io/Alif-Enterprise",
   "name": "accounting",
   "version": "1.0.0",
   "description": "Accounting Software",
@@ -8,7 +9,9 @@
     "dev": "nodemon server.js",
     "debug": "ndb server.js",
     "watch:js": "parcel watch ./public/js/main.js --out-dir ./public/js --out-file bundle.js",
-    "build:js": "parcel watch ./public/js/main.js --out-dir ./public/js --out-file bundle.js"
+    "build:js": "parcel watch ./public/js/main.js --out-dir ./public/js --out-file bundle.js",
+    "predeploy": "run npm build",
+    "deploy": "gh-pages -d dist"
   },
   "author": "Mohammad Shiful Islam Shihab",
   "license": "ISC",
