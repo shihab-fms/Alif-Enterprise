@@ -15,6 +15,7 @@ const DB = process.env.ATLAS_DATABASE_APPLICATION.replace(
   '<password>',
   process.env.ATLAS_DATABASE_PASSWORD
 );
+mongoose.set('strictQuery', false);
 
 mongoose.connect(DB).then(() => {
   console.log('Database connection successful');

@@ -80,6 +80,7 @@ if (loginForm)
     e.preventDefault();
     const email = document.querySelector('#email').value;
     const password = document.querySelector('#password').value;
+    console.log(password, email);
     login(email, password);
   });
 
@@ -106,13 +107,15 @@ if (btnItem)
 //      1) Search for branch result
 
 if (searchbranchForm) {
-  searchbranchForm.addEventListener('submit', (e) => {
+  const btn = document.querySelector('.btn--branch__report');
+  btn.addEventListener('click', (e) => {
     e.preventDefault();
     const branchId = document.querySelector('#branch--id').value;
     const from = document.querySelector('#date--from').value;
     let to = document.querySelector('#date--to').value;
 
     if (!to) to = new Date(Date.now());
+    console.log('hello');
     branch.branchReport(branchId, from, to);
   });
 }

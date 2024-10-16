@@ -4,6 +4,7 @@ const cookieParser = require('cookie-parser');
 const express = require('express');
 const morgan = require('morgan');
 const session = require('express-session');
+const cors = require('cors');
 
 const globalErrorHandler = require('./controller/errorController');
 const AppError = require('./utils/appError');
@@ -24,6 +25,7 @@ app.set('views', path.join(__dirname, 'views'));
 
 // Middleware Function
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(cors());
 
 // Development logging
 if (process.env.NODE_ENV === 'development') {

@@ -12159,13 +12159,14 @@ var login = /*#__PURE__*/function () {
               location.assign('/');
             }, 1500);
           }
-          _context.next = 10;
+          _context.next = 11;
           break;
         case 7:
           _context.prev = 7;
           _context.t0 = _context["catch"](0);
-          (0, _alert.showAlert)('error', _context.t0.response.data.message);
-        case 10:
+          console.log(_context.t0);
+          (0, _alert.showAlert)('error', _context.t0.message);
+        case 11:
         case "end":
           return _context.stop();
       }
@@ -14172,6 +14173,7 @@ if (loginForm) loginForm.addEventListener('submit', function (e) {
   e.preventDefault();
   var email = document.querySelector('#email').value;
   var password = document.querySelector('#password').value;
+  console.log(password, email);
   (0, _login.login)(email, password);
 });
 if (btnlogout) btnlogout.addEventListener('click', _login.logout);
@@ -14194,12 +14196,14 @@ if (btnItem) btnItem.addEventListener('click', function (e) {
 //      1) Search for branch result
 
 if (searchbranchForm) {
-  searchbranchForm.addEventListener('submit', function (e) {
+  var btn = document.querySelector('.btn--branch__report');
+  btn.addEventListener('click', function (e) {
     e.preventDefault();
     var branchId = document.querySelector('#branch--id').value;
     var from = document.querySelector('#date--from').value;
     var to = document.querySelector('#date--to').value;
     if (!to) to = new Date(Date.now());
+    console.log('hello');
     branch.branchReport(branchId, from, to);
   });
 }
@@ -14582,7 +14586,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "4429" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "1257" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];

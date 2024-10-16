@@ -20,10 +20,9 @@ const createJWT = (user, statusCode, res) => {
     httpOnly: true,
   };
 
-  if (process.env.NODE_ENV === 'production') cookieOptions.sucure = true;
+  if (process.env.NODE_ENV === 'production') cookieOptions.secure = true;
 
   res.cookie('jwt', token, cookieOptions);
-  user.password = undefined;
 
   res.status(statusCode).json({
     status: 'success',
@@ -152,5 +151,6 @@ exports.isLoggedIn = async (req, res, next) => {
       return next();
     }
   }
+
   next();
 };
